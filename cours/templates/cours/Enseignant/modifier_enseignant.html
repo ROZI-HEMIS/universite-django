@@ -1,0 +1,9 @@
+<h1>Modifier un enseignant</h1>
+
+<form method="POST">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Modifier</button>
+</form>
+
+<a href="{% url 'liste_enseignant' %}">Retour</a>

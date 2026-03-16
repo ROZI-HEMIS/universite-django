@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modifier le cours</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; padding-top: 50px; }
+        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 400px; }
+        h1 { color: #2c3e50; font-size: 24px; text-align: center; }
+        form p { margin-bottom: 15px; }
+        input, select, textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; background-color: #3498db; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #2980b9; }
+        .back-link { display: block; text-align: center; margin-top: 15px; color: #7f8c8d; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Modifier le cours</h1>
+        <form method="POST">
+            {% csrf_token %} {{ form.as_p }}
+            <button type="submit">Enregistrer les modifications</button>
+        </form>
+        <a href="{% url 'liste_cours' %}" class="back-link">← Retour à la liste</a>
+    </div>
+</body>
+</html>

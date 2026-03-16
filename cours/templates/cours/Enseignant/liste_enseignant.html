@@ -1,0 +1,15 @@
+<h1>Liste des enseignants</h1>
+
+<a href="{% url 'ajouter_enseignant' %}">Ajouter un enseignant</a>
+
+<ul>
+{% for e in enseignants %}
+<li>
+{{ e.nom }} {{ e.prenom }} - {{ e.email }}
+
+<a href="{% url 'modifier_enseignant' e.id %}">Modifier</a>
+<a href="{% url 'supprimer_enseignant' e.id %}">Supprimer</a>
+
+</li>
+{% endfor %}
+</ul>

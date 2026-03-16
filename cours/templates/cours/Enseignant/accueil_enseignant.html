@@ -1,0 +1,21 @@
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in enseignants %}
+        <tr>
+            <td>{{ e.nom }}</td>
+            <td>{{ e.email }}</td>
+            <td>
+                <a href="{% url 'modifier_enseignant' e.id %}">Modifier</a>
+                <a href="{% url 'supprimer_enseignant' e.id %}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

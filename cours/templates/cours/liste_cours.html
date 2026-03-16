@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Université - Liste des Cours</title>
+</head>
+<body>
+    <h1>Gestion des Cours</h1>
+    
+   
+    <p>
+        <strong>Utilisateur connecté : {{ user.username }}</strong> |
+        <a href="{% url 'deconnexion' %}">Se déconnecter</a>
+    </p>
+
+    <hr>
+
+    <p>
+        <a href="{% url 'ajouter_cours' %}">+ Ajouter un cours</a>
+    </p>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Enseignant</th>
+                <th>Crédits</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in cours %}
+            <tr>
+                <td>{{ c.titre }}</td>
+                <td>{{ c.enseignant }}</td>
+                <td>{{ c.credit }}</td>
+                <td>
+                    <a href="{% url 'modifier_cours' c.id %}">Modifier</a> |
+                    <a href="{% url 'supprimer_cours' c.id %}" onclick="return confirm('Supprimer ce cours ?')">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <hr>
+
+    <p>
+        <a href="{% url 'accueil' %}">← Retour à l'accueil</a>
+    </p>
+</body>
+</html>
